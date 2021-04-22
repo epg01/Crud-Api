@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const initialForm = {
-  artist: "",
+  User: "",
   song: "",
 };
 
@@ -34,7 +34,7 @@ const SongForm = ({ handleSearch }) => {
           name="artist"
           placeholder="Nombre del intérprete"
           onChange={handleChange}
-          value={form.artist}
+          value={form.User}
         />
         <input
           type="text"

@@ -14,9 +14,9 @@ const SongSearch = () => {
     if (search === null) return;
 
     const fetchData = async () => {
-      const { artist, song } = search;
-      let artistUrl = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
-      let songUrl = `https://api.lyrics.ovh/v1/${artist}/${song}`;
+      const { user, song } = search;
+      let artistUrl = `http://localhost:8000/{user}`;
+      let songUrl = `https://api.lyrics.ovh/v1/${user}/${song}`;
       //console.log(artistUrl, songUrl);
 
       setLoading(true);

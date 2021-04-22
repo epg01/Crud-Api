@@ -14,7 +14,7 @@ func getData(id string) (*employee, error) {
 		return new(employee), err
 	}
 
-	rows, err := db.Query("SELECT * FROM Register WHERE ID=?", id)
+	rows, err := db.Query("SELECT * FROM Register WHERE User=?", id)
 
 	if err != nil {
 		defer db.Close()

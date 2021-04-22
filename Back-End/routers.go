@@ -18,6 +18,8 @@ func setupRouterForEmpleyee(router *mux.Router) {
 
 	router.HandleFunc("/", getRegister).Methods("GET")
 
+	router.HandleFunc("/{data.user}", getRegisterUser).Methods("GET")
+
 	// It's OPTIONS arguments is to be able to handle the cros, get doesn't need it.
 
 	router.HandleFunc("/", createRegister).Methods("POST", "OPTIONS")
@@ -137,6 +139,30 @@ func getRegister(w http.ResponseWriter, r *http.Request) {
 	} else {
 
 		JSON(w, http.StatusOK, Register)
+	}
+}
+
+func getRegisterUser(w http.ResponseWriter, r *http.Request) {
+
+	enableCORS(&w, r)
+
+	w.Header().Set("Content-type", "application/json")
+
+	var user string
+	vars := mux.Vars(r)
+
+	user = strings.TrimLeft(vars["data.user"], "{")
+	user = strings.TrimRight(user, "}")
+
+	// Function that reloads the data on each call and is found in the dataBaseController.go file.
+	userR, err := getData(user)
+
+	if err != nil {
+
+		ERROR(w, http.StatusUnprocessableEntity, err)
+	} else {
+
+		JSON(w, http.StatusOK, userR)
 	}
 }
 

@@ -21,7 +21,7 @@ const SongDetail = ({ search, lyric, bio }) => {
         <SongArtis artist={bio.artists[0]} />
       ) : (
         <Message
-          msg={`Error:La canción no existe '<em> ${search.artist} </em>'`}
+          msg={`Error:La canción no existe '<em> ${search.User} </em>'`}
           bgColor="#dc3545"
         />
       )}
