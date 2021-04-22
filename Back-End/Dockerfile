@@ -19,4 +19,8 @@ RUN cd src &&\
 
 RUN cd src/Back-End/ && go build
 
+WORKDIR src/Back-End
+
 EXPOSE 8000
+
+CMD ./Back-End
