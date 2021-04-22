@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  frontend:
+    image: frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+  backend:
+    image: backend
+    ports:
+      - 8000:8000
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:latest
