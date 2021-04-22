@@ -3,7 +3,7 @@ import Datepicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const initialForm = {
-  id: null,
+  ID: null,
   User: "",
   CreateDate: "",
   UpdateDate: "",
@@ -42,7 +42,7 @@ export default function CrudForm({
       alert("datos incompletos");
       return;
     }
-    if (form.id === null) {
+    if (form.ID === null) {
       createData(form);
     } else {
       updateData(form);
@@ -71,7 +71,7 @@ export default function CrudForm({
             type="text"
             name="User"
             placeholder="User"
-            id="apellido"
+            ID="apellido"
           />
 
           <input
@@ -88,7 +88,7 @@ export default function CrudForm({
             placeholderText="Update Date"
             type="date"
             name="UpdateDate"
-            id="nombre"
+            ID="nombre"
           />
 
           <select
