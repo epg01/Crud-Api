@@ -16,25 +16,9 @@ services:
     depends_on:
       - mysql
   mysql:
-    image: mysql:latest
+    image: mysql
+    container_name: mysqlDB
     restart: always
     container_name: 172.23.0.2
-    volumes:
-      - './mysql_data:/var/lib/mysql'
-    environment:
-      - MYSQL_DATABASE=Hirings
-      - MYSQL_USER=newuser
-      - MYSQL_PASSWORD=password
-      - MYSQL_ROOT_PASSWORD=root
-#    command:
-#     - USE Hirings;
-#     - CREATE TABLE IF NOT EXISTS Register(
-#       ID int AUTO_INCREMENT,
-#       User varchar(20) unique not null,
-#       State varchar(10) not null,
-#       CreateDate date not null,
-#       UpdateDate date not null,
-#       PRIMARY KEY (ID));
-  
     ports:
       - 3306:3306

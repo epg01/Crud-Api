@@ -1,7 +1,7 @@
 -- Script to create a database to be used by the front-end and back-end.
 
-CREATE DATABASE IF NOT EXISTS DB_NAME;
-USE DB_NAME;
+CREATE DATABASE IF NOT EXISTS Hirings;
+USE Hirings;
 
 CREATE TABLE IF NOT EXISTS Register(
        ID int AUTO_INCREMENT,
