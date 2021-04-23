@@ -18,10 +18,10 @@ const SongForm = ({ handleSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (!form.artist || !form.song) {
-    //   alert("datos completos berriendo");
-    //   return;
-    // }
+    if (!form.User) {
+       alert("datos completos berriendo");
+       return;
+    }
     handleSearch(form);
     setForm(initialForm);
   };

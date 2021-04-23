@@ -4,7 +4,7 @@ const SongLyric = ({ lyrics, title }) => {
   return (
     <section>
       <h3>{title}</h3>
-      <blockquote style={{ whiteSpace: "pre-wrap", color: "white" }}>
+	<blockquote style={{background:"#222", color: "white", paddig:"0px" }}>
         {lyrics}{" "}
       </blockquote>
     </section>
