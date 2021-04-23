@@ -2,23 +2,31 @@ version: '3.3'
 
 services:
   frontend:
-    image: frontend
+    build:
+      context: ./Front-End
+      dockerfile: Dockerfile
+#    image: frontend
     container_name: front
     ports:
       - 3000:3000
     depends_on:
       - backend
   backend:
-    image: go
+    build: 
+       context: ./Back-End
+       dockerfile: Dockerfile
+#    image: go
     container_name: back
     ports:
       - 8000:8000
     depends_on:
       - mysql
   mysql:
-    image: mysql
+    build:
+       context: ./DockerfileDB
+       dockerfile: Dockerfile
+#    image: mysql
     container_name: mysqlDB
     restart: always
-    container_name: 172.23.0.2
     ports:
       - 3306:3306
