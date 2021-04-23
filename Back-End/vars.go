@@ -10,7 +10,7 @@ import (
 
 var _ = godotenv.Load(".env-example") // We load the file called .env
 var (
-	ConnectionString = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s",
+	ConnectionString = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true",
 		os.Getenv("user"),
 		os.Getenv("pass"),
 		os.Getenv("host"),

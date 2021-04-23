@@ -45,5 +45,5 @@ func main() {
 	log.Fatal(http.ListenAndServe(":"+port, router))
 
 	// We close the database
-	defer db.Close()
+	//defer db.Close()
 }
