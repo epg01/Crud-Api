@@ -36,14 +36,13 @@ const CrudApi = () => {
   }, [url]);
 
   const createData = (data) => {
-    // data.id = Date.now();
-    // console.log(data);
+
     let options = {
       body: data,
       headers: { "content-type": "application/json" },
     };
     api.post(url, options).then((res) => {
-      //console.log(res);
+
       if (!res.err) {
         console.log("desde el post");
         setDb([...db, res]);
@@ -55,8 +54,8 @@ const CrudApi = () => {
 
   const updateData = (data) => {
     let endPoint = `${url}/${data.ID}`;
+      console.log(data.ID)
 
-    //console.log(endPoint);
     let options = {
       body: data,
       headers: { "content-type": "application/json" },
@@ -67,16 +66,16 @@ const CrudApi = () => {
         let newData = db.map((el) => (el.ID === data.ID ? data : el));
         setDb(newData);
         console.log("desde el put");
-        //location.reload();
+
       } else {
         setError(res);
       }
     });
-    //setDb(newData);
+
   };
 
   const deleteData = (id) => {
-    let isDelete = window.confirm(`estas seGuro de su eliminación '${id}'?`);
+    let isDelete = window.confirm(`¿estás seguro de su eliminación del usuario '${id}'?`);
 
     if (isDelete) {
       let endPoint = `${url}/${id}`;

@@ -20,7 +20,7 @@ func getData(id string) (*employee, error) {
 		defer db.Close()
 		return new(employee), err
 	}
-	var rR employee // reload Database
+	var rR employee
 
 	rows.Next()
 	err = rows.Scan(&rR.ID, &rR.User, &rR.State, &rR.CreateDate,

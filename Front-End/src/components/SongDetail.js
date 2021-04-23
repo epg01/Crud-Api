@@ -21,16 +21,16 @@ const SongDetail = ({ search, lyric }) => {
 		    bgColor="#dc3545"
 		/>
 	    ) : (
-		<SongLyric title={search.song} lyrics={lyric.ID}/> &&
+		<SongLyric title={search.song} lyrics={lyric.ID}/>
 	    )}
 
 	    {lyric.error || lyric.err || lyric.name === "AbortError" ? (
 		<Message
-		    msg={`Error: el user '<em>${lyrics.User}</em>' no existe`}
+		    msg={`Error: el user '<em>${lyric.User}</em>' no existe`}
 		    bgColor="#dc3545"
 		/>
 	    ) : (
-		<SongLyric title={search.song} lyrics={lyric.User}/> &&
+		<SongLyric title={search.song} lyrics={lyric.User}/>
 	    )}
 
 
@@ -40,7 +40,7 @@ const SongDetail = ({ search, lyric }) => {
 		    bgColor="#dc3545"
 		/>
 	    ) : (
-		<SongLyric title={search.song} lyrics={lyric.State}/> &&
+		<SongLyric title={search.song} lyrics={lyric.State}/>
 	    )}
 
 
@@ -50,19 +50,19 @@ const SongDetail = ({ search, lyric }) => {
 		    bgColor="#dc3545"
 		/>
 	    ) : (
-		<SongLyric title={search.song} lyrics={lyric.CreateDate}/> &&
-	    )}
+		<SongLyric title={search.song} lyrics={lyric.CreateDate}/>
+		)}
 
 
-	    	    {lyric.error || lyric.err || lyric.name === "AbortError" ? (
+	    {lyric.error || lyric.err || lyric.name === "AbortError" ? (
 		<Message
 		    msg={`Error: el update no existe`}
 		    bgColor="#dc3545"
 		/>
 	    ) : (
-		<SongLyric title={search.song} lyrics={lyric.ID}/> &&
+		<SongLyric title={search.song} lyrics={lyric.ID}/>
 	    )}
-
+	    
 
 
       {/* {bio.artists ? (

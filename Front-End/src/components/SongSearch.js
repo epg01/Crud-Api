@@ -7,26 +7,20 @@ import { helpHttp } from "../helper/helpHttp";
 const SongSearch = () => {
   const [search, setSearch] = useState(null);
   const [lyric, setLyric] = useState(null);
-    const [bio, setBio] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (search === null) return;
 
     const fetchData = async () => {
-      const { User, song } = search;
-      let artistUrl = `http://localhost:8000/${User}`;
+      const { User } = search;
         let songUrl = `http://localhost:8000/${User}`;	
-      console.log(artistUrl, songUrl);
 
       setLoading(true);
 
-      const [artistRes, songRes] = await Promise.all([
-        helpHttp().get(artistUrl),
+      const [songRes] = await Promise.all([
         helpHttp().get(songUrl),
       ]);
-
-      console.log(artistRes, songRes);
 
       setLyric(songRes);
 

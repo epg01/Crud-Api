@@ -3,12 +3,14 @@ version: '3.3'
 services:
   frontend:
     image: frontend
+    container_name: front
     ports:
       - 3000:3000
     depends_on:
       - backend
   backend:
-    image: backend
+    image: go
+    container_name: back
     ports:
       - 8000:8000
     depends_on:
@@ -16,7 +18,7 @@ services:
   mysql:
     image: mysql:latest
     restart: always
-    container_name: godockerDB
+    container_name: 172.23.0.2
     volumes:
       - './mysql_data:/var/lib/mysql'
     environment:

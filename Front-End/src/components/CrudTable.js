@@ -36,7 +36,6 @@ export default function CrudTable({ data, setDataToEdit, deleteData }) {
             </tr>
           )}
 
-          {/* {console.log( data.map)}       */}
         </tbody>
       </table>
     </div>

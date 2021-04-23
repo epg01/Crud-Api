@@ -18,7 +18,7 @@ func setupRouterForEmpleyee(router *mux.Router) {
 
 	router.HandleFunc("/", getRegister).Methods("GET")
 
-	router.HandleFunc("/{data.user}", getRegisterUser).Methods("GET", "OPTIONS")
+	router.HandleFunc("/{data.user}", getRegisterUser).Methods("GET")
 
 	// It's OPTIONS arguments is to be able to handle the cros, get doesn't need it.
 
@@ -81,45 +81,32 @@ func updateRegister(w http.ResponseWriter, r *http.Request) {
 
 	enableCORS(&w, r)
 
+	// This header gives information to the browser so that it knows what data we are sending and tmaibén helps us to debug the code.
+	w.Header().Set("Content-type", "application/json")
+
 	if (*r).Method == "OPTIONS" {
 		return
 	}
-
-	// This header gives information to the browser so that it knows what data we are sending and tmaibén helps us to debug the code.
-
-	w.Header().Set("Content-type", "application/json")
 
 	var idEmployee string
 	vars := mux.Vars(r)
 
 	var updateEmployee employee
 
-	reqBody, err := ioutil.ReadAll(r.Body)
+	reqBody, _ := ioutil.ReadAll(r.Body)
 
-	if err != nil {
+	// This function helps us deserialize our JSON array to get useful data.
+	json.Unmarshal(reqBody, &updateEmployee)
 
-		ERROR(w, http.StatusUnprocessableEntity, err)
-	} else {
+	idEmployee = strings.TrimLeft(vars["data.id"], "{")
+	idEmployee = strings.TrimRight(idEmployee, "}")
 
-		// This function helps us deserialize our JSON array to get useful data.
-		json.Unmarshal(reqBody, &updateEmployee)
+	fmt.Printf("\n\nUpdate:%v\n\n", idEmployee)
 
-		idEmployee = strings.TrimLeft(vars["data.id"], "{")
-		idEmployee = strings.TrimRight(idEmployee, "}")
+	// Function to update the data found in the dataBaseController.go file
+	updateR, _ := updateData(&updateEmployee, idEmployee)
 
-		fmt.Printf("\n\n%v\n\n", idEmployee)
-
-		// Function to update the data found in the dataBaseController.go file
-		updateR, err := updateData(&updateEmployee, idEmployee)
-
-		if err != nil {
-
-			ERROR(w, http.StatusUnprocessableEntity, err)
-		} else {
-
-			JSON(w, http.StatusOK, updateR)
-		}
-	}
+	JSON(w, http.StatusOK, updateR)
 }
 
 // Function to obtain a certain number of records, in our case 10 per page.
@@ -145,10 +132,6 @@ func getRegister(w http.ResponseWriter, r *http.Request) {
 func getRegisterUser(w http.ResponseWriter, r *http.Request) {
 
 	enableCORS(&w, r)
-
-	if (*r).Method == "OPTIONS" {
-		return
-	}
 
 	w.Header().Set("Content-type", "application/json")
 

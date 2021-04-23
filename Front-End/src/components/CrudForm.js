@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Datepicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 
 const initialForm = {
@@ -18,8 +18,6 @@ export default function CrudForm({
   el,
 }) {
   const [form, setForm] = useState(initialForm);
-  const [selectDate, setSelectDate] = useState(new Date());
-  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
     if (dataToEdit) {
@@ -62,7 +60,11 @@ export default function CrudForm({
 
       <div className="form-container">
         <form onSubmit={handleSubmit}>
-          <input type="submit" value="Enviar" />
+          <input
+            type="submit"
+            value="Enviar"
+            onClick={() => window.location.reload()}
+          />
           <input type="reset" value="Limpiar" onClick={handleReset} />
 
           <input
@@ -71,7 +73,6 @@ export default function CrudForm({
             type="text"
             name="User"
             placeholder="User"
-            ID="apellido"
           />
 
           <input
@@ -86,7 +87,6 @@ export default function CrudForm({
             value={form.UpdateDate}
             type="date"
             name="UpdateDate"
-            ID="nombre"
           />
 
           <select
