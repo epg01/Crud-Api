@@ -20,6 +20,13 @@
       "CreateDate": "2021-04-21",
       "UpdateDate": "2021-05-07",
       "State": "Activo"
+    },
+    {
+      "id": 1619121882428,
+      "User": "juana de arco francia",
+      "CreateDate": "2021-04-22",
+      "UpdateDate": "2021-04-30",
+      "State": "Activo"
     }
   ]
 }

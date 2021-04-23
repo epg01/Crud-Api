@@ -36,8 +36,8 @@ const CrudApi = () => {
   }, [url]);
 
   const createData = (data) => {
-//    data.id = Date.now();
-    //console.log(data);
+    // data.id = Date.now();
+    // console.log(data);
     let options = {
       body: data,
       headers: { "content-type": "application/json" },

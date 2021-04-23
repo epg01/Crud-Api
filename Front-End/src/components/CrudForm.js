@@ -76,7 +76,6 @@ export default function CrudForm({
 
           <input
             onChange={handleChange}
-            placeholderText="Create Date"
             value={form.CreateDate}
             type="date"
             name="CreateDate"
@@ -85,7 +84,6 @@ export default function CrudForm({
           <input
             onChange={handleChange}
             value={form.UpdateDate}
-            placeholderText="Update Date"
             type="date"
             name="UpdateDate"
             ID="nombre"

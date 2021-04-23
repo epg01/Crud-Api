@@ -11,7 +11,7 @@ const SongForm = ({ handleSearch }) => {
   const handleChange = (e) => {
     setForm({
       ...form,
-      //se extrae name si artist o song, con los corhetes ago dinamico el objeto
+      //se extrae name si artist o song, con los corchetes ago dinamico el objeto
       [e.target.name]: e.target.value,
     });
   };
@@ -31,18 +31,18 @@ const SongForm = ({ handleSearch }) => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="artist"
+          name="User"
           placeholder="Nombre del intérprete"
           onChange={handleChange}
           value={form.User}
         />
-        <input
+	  {/*        <input
           type="text"
           name="song"
           placeholder="Nombre de la cancion"
           onChange={handleChange}
           value={form.song}
-        />
+          /> */}
         <input type="submit" value="Enviar" />
       </form>
     </div>

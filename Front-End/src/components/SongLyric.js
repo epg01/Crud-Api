@@ -4,7 +4,9 @@ const SongLyric = ({ lyrics, title }) => {
   return (
     <section>
       <h3>{title}</h3>
-      <blockquote style={{ whiteSpace: "pre-wrap" }}>{lyrics} </blockquote>
+      <blockquote style={{ whiteSpace: "pre-wrap", color: "white" }}>
+        {lyrics}{" "}
+      </blockquote>
     </section>
   );
 };
