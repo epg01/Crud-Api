@@ -21,10 +21,10 @@ const CrudApi = () => {
     helpHttp()
       .get(url)
       .then((res) => {
-        console.log(res);
+
         if (!res.err) {
           setDb(res);
-          console.log(res);
+
 
           setError(null);
         } else {
@@ -44,7 +44,7 @@ const CrudApi = () => {
     api.post(url, options).then((res) => {
 
       if (!res.err) {
-        console.log("desde el post");
+
         setDb([...db, res]);
       } else {
         setError(res);
@@ -54,18 +54,16 @@ const CrudApi = () => {
 
   const updateData = (data) => {
     let endPoint = `${url}/${data.ID}`;
-      console.log(data.ID)
 
     let options = {
       body: data,
       headers: { "content-type": "application/json" },
     };
     api.put(endPoint, options).then((res) => {
-      console.log(res);
+
       if (!res.err) {
         let newData = db.map((el) => (el.ID === data.ID ? data : el));
         setDb(newData);
-        console.log("desde el put");
 
       } else {
         setError(res);
@@ -79,7 +77,7 @@ const CrudApi = () => {
 
     if (isDelete) {
       let endPoint = `${url}/${id}`;
-      console.log(endPoint);
+
       let options = {
         headers: { "content-type": "application/json" },
       };

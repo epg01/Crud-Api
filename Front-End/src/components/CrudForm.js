@@ -105,10 +105,10 @@ export default function CrudForm({
         <div className="contact-info">
           <ul>
             <li>📧 sixtandev@gmail.com</li>
-            <li>📞 (57)314-895-17-56</li>
-            <p> Iam Emmanuel Palacio Gaviria.</p>
+            <li>📞 (+57)314-895-17-56</li>
+            <p> I am Emmanuel Palacio Gaviria.</p>
             <p>
-              I'm a passionate and creative full-stack developer from Colombia
+              I am a passionate and creative full-stack developer from Colombia
               🧡
             </p>
             <p>I hope some day understand the kernel 🧠</p>
