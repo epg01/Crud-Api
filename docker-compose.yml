@@ -17,6 +17,8 @@ services:
        dockerfile: Dockerfile
 #    image: go
     container_name: back
+    command: sh -c "while true; do sleep 1; done"
+    #command: sh -c "./Back-End/Back-End"
     ports:
       - 8000:8000
     depends_on:
