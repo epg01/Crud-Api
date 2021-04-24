@@ -61,11 +61,11 @@ We proceed to execute our docker compose that is located in the root of our fold
 then we execute the  ``` sudo docker-compose ps ``` command to be able to see if the containers are mounted correctly and without any coming out.
 It should appear something like this
 
-| Name           | Command      |  State                 | Ports                                                 |
-| :---           |     :---:    |          -----         |:---                                                   |
-| back           | mysql:latest | up                     | 0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp  |
-| front          | mysql:latest | up                     | 0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp  |
-| mysqlDB        | mysql:latest | up                     | 0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp  |
+| Name           | Command                         |  State                 | Ports                                                 |
+| :---           |     :---:                       |          -----         |:---                                                   |
+| back           |  sh -C while true; do sleep ... | up                     | 0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp  |
+| front          |  docker-entrypoint.sh /bin/ ... | up                     | 0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp  |
+| mysqlDB        |  docker-entrypoint.sh mysql     | up                     | 0.0.0.0:3306->3306/tcp, :::3306->3306/tcp, 33060/tcp  |
 
 If all our containers have the **Status** as Up, it is because they were created successfully 💙
 Then we have to proceed to manually start our server in the back container, we enter our container **back** writing the following command
