@@ -2,6 +2,10 @@
 
 package main
 
+import (
+	"strings"
+)
+
 // Function that is executed by the function that handles the GET method found
 // in the routes.go file, this function reloads the data to be able to send it to the requesting server.
 
@@ -45,6 +49,8 @@ func enterData(newEmployee *employee) error {
 	} else {
 
 		// Modifica el EXEC
+
+		(*newEmployee).User = strings.ToLower((*newEmployee).User)
 		_, err = db.Exec("INSERT INTO Register "+Insert+" VALUES "+Values,
 			(*newEmployee).User, (*newEmployee).State, (*newEmployee).CreateDate,
 			(*newEmployee).UpdateDate)
