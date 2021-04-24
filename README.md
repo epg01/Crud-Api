@@ -69,20 +69,28 @@ It should appear something like this
 
 If all our containers have the **Status** as Up, it is because they were created successfully 💙
 Then we have to proceed to manually start our server in the back container, we enter our container **back** writing the following command
- ``` sudo docker-compose exec backend bash ```
+
+ ``` sudo docker-compose exec -it backend bash ```
+ 
  once entered our **back** container, we execute the binary file that was generated when the **back** container was created, executing the following command.
+ 
  ``` ./Back-End ```
+ 
 Where if it runs successfully (how it should be if all of our containers ran successfully)
+
  ``` Ouput-
 Server listening on port = 8000
  ```
  
  Finally we can open our browser of preference by typing the following URL.
+ 
   ``` htpp://localhost:3000/```
+  
 And finally we have our fully functional CRUD API
 
 ### Project mounted on a remote server.
 You can also choose to look at the project at the following URL
+
  ``` http://104.156.246.116:3000/ ```
     
 ## Contact
