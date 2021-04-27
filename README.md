@@ -87,11 +87,6 @@ Server listening on port = 8000
   ``` htpp://localhost:3000/```
   
 And finally we have our fully functional CRUD API
-
-### Project mounted on a remote server.
-You can also choose to look at the project at the following URL
-
- ``` http://104.156.246.116:3000/ ```
     
 ## Contact
 
